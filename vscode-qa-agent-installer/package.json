@@ -1,5 +1,6 @@
 {
   "name": "vscode-qa-agent-installer",
+  "publisher": "Vignesh8205",
   "displayName": "QA Automation Agent Installer",
   "description": "Scaffolds QA Automation Agent Profiles and Skills into your workspace",
   "version": "1.0.0",
