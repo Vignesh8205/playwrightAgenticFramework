@@ -1,10 +1,8 @@
 import { test as base } from '@playwright/test';
-
-import { ContactPage } from '../pom/ContactPage';
-import { Navigation } from '../pom/Navigation';
+import { ContactPage } from '../pages/ContactPage';
+import { Navigation } from '../pages/Navigation';
 
 export type CustomFixtures = {
-
   contactPage: ContactPage;
   navigation: Navigation;
 };
