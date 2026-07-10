@@ -26,6 +26,25 @@ To fully utilize the generated Agent, your Agentic IDE (e.g., GitHub Copilot, Cl
 * `@playwright/mcp`
 * `mcp-remote` (Atlassian Jira)
 
+## 📦 How to Build the Extension Locally
+
+If you want to build the `.vsix` installer file yourself so you can share it with others, you can package it using the official VS Code Extension manager (`vsce`).
+
+1. Open your terminal and navigate to the extension folder:
+   ```bash
+   cd vscode-qa-agent-installer
+   ```
+2. Install the necessary dependencies (including the VSCE CLI tool):
+   ```bash
+   npm install
+   npm install -g @vscode/vsce
+   ```
+3. Run the package command to generate the `.vsix` file:
+   ```bash
+   npx @vscode/vsce package --no-dependencies
+   ```
+4. A file named `vscode-qa-agent-installer-1.0.0.vsix` will be generated in the current folder. You can drag and drop this file into the VS Code Extensions panel to install it, or send it to your team!
+
 ## 🤝 Contributing
 
 This extension is part of the broader **Playwright Agentic Framework**. Feel free to submit pull requests or file issues on the main repository!
