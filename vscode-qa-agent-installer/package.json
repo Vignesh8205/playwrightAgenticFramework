@@ -1,0 +1,32 @@
+{
+  "name": "vscode-qa-agent-installer",
+  "displayName": "QA Automation Agent Installer",
+  "description": "Scaffolds QA Automation Agent Profiles and Skills into your workspace",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "qa-agent.initialize",
+        "title": "Initialize QA Automation Agent"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^18.x",
+    "typescript": "^5.1.3"
+  }
+}
