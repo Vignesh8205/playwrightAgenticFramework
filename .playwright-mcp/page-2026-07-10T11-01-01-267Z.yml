@@ -1,0 +1,96 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "AI Driven Consultancy" [ref=e10]
+        - navigation [ref=e11]:
+          - link "Home" [ref=e12] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e13] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e14] [cursor=pointer]:
+            - /url: /services
+          - link "Projects" [ref=e15] [cursor=pointer]:
+            - /url: /projects
+          - link "Blog" [ref=e16] [cursor=pointer]:
+            - /url: /blog
+          - link "Contact" [ref=e17] [cursor=pointer]:
+            - /url: /contact
+        - link "Get Started →" [ref=e19] [cursor=pointer]:
+          - /url: /contact
+          - text: Get Started
+          - generic [ref=e20]: →
+    - main [ref=e21]:
+      - paragraph [ref=e28]: Loading...
+    - contentinfo [ref=e29]:
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - link [ref=e36] [cursor=pointer]:
+              - /url: /
+              - img "AI Driven Consultancy" [ref=e38]
+            - paragraph [ref=e39]: Empowering Digital Transformation with Intelligence and Innovation
+            - generic [ref=e40]:
+              - link "director@aidrivenconsultancy.com" [ref=e46] [cursor=pointer]:
+                - /url: mailto:director@aidrivenconsultancy.com
+              - generic [ref=e47]: +91-9080930718
+              - generic [ref=e52]: 13A, 1st Street, Venkateswara Nagar, Water Canal Road , RPS Hospitals Behind , Korattur and Chennai -600076
+          - generic [ref=e58]:
+            - heading "Quick Links" [level=3] [ref=e59]
+            - list [ref=e60]:
+              - listitem [ref=e61]:
+                - link [ref=e62] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e66]:
+                - link [ref=e67] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e71]:
+                - link [ref=e72] [cursor=pointer]:
+                  - /url: /projects
+              - listitem [ref=e76]:
+                - link [ref=e77] [cursor=pointer]:
+                  - /url: /contact
+          - generic [ref=e81]:
+            - heading "Job Support" [level=3] [ref=e82]
+            - list [ref=e83]:
+              - listitem [ref=e84]:
+                - link [ref=e85] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e89]:
+                - link [ref=e90] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e94]:
+                - link [ref=e95] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e99]:
+                - link [ref=e100] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e104]:
+                - link [ref=e105] [cursor=pointer]:
+                  - /url: /services
+          - generic [ref=e109]:
+            - heading "Stay Updated" [level=3] [ref=e110]
+            - paragraph [ref=e111]: Subscribe to our newsletter for the latest updates and insights.
+            - generic [ref=e112]:
+              - textbox "Enter your email" [ref=e116]
+              - button "Subscribe" [disabled] [ref=e117]
+        - generic [ref=e123]:
+          - paragraph [ref=e124]: © 2026 AI Driven Consultancy. All rights reserved.
+          - generic [ref=e125]:
+            - link "Follow us on LinkedIn" [ref=e126] [cursor=pointer]:
+              - /url: https://linkedin.com/company/aidrivenconsultancy
+            - link "Follow us on GitHub" [ref=e132] [cursor=pointer]:
+              - /url: https://github.com/aidrivenconsultancy
+            - link "Follow us on Twitter" [ref=e137] [cursor=pointer]:
+              - /url: https://twitter.com/aidrivenconsultancy
+            - link "Follow us on YouTube" [ref=e141] [cursor=pointer]:
+              - /url: https://youtube.com/@aidrivenconsultancy
+          - generic [ref=e146]:
+            - link [ref=e147] [cursor=pointer]:
+              - /url: /privacy
+            - generic [ref=e149]: •
+            - link [ref=e150] [cursor=pointer]:
+              - /url: /terms
+  - button [ref=e153]

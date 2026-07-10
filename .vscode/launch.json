@@ -1,0 +1,17 @@
+// See https://github.com/microsoft/vscode-mock-debug/blob/main/.vscode/launch.json
+// for the latest C# support options
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}/extension"],
+      "outFiles": ["${workspaceFolder}/extension/dist/**/*.js"],
+      "preLaunchTask": "${defaultBuildTask}"
+    }
+  ],
+  "compounds": []
+}

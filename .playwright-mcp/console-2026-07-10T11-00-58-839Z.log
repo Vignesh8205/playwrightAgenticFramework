@@ -1,0 +1,5 @@
+[    1902ms] [LOG] EnquiryPopup - Checking if popup should show... @ https://aidrivenconsultancy.com/assets/index-C2PZZE6r.js:236
+[    1903ms] [LOG] PopupTracking - localStorage state: {shown: null, submitted: null, closed: null} @ https://aidrivenconsultancy.com/assets/index-C2PZZE6r.js:236
+[    1903ms] [LOG] EnquiryPopup - Should show: true @ https://aidrivenconsultancy.com/assets/index-C2PZZE6r.js:236
+[    6914ms] [LOG] EnquiryPopup - Showing popup @ https://aidrivenconsultancy.com/assets/index-C2PZZE6r.js:236
+[    6915ms] [LOG] PopupTracking - Marked as shown @ https://aidrivenconsultancy.com/assets/index-C2PZZE6r.js:236
