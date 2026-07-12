@@ -10,7 +10,13 @@ Whenever you are ready to automate a new feature or test case, simply open a new
 
 > **"Trigger QA automation"** or **"Start the QA automation workflow"**
 
-The agent will immediately recognize this prompt and begin its interactive 7-step process.
+The agent will immediately recognize this prompt and begin its interactive 7-step process to generate your tests.
+
+Whenever you have finished automating a task and want to raise a Pull Request and sync it back to Jira, type:
+
+> **"Run the pr-jira-sync skill"**
+
+This will trigger the post-automation sync workflow to finalize your changes.
 
 ---
 
@@ -45,6 +51,19 @@ The agent will scan your repository (`tests/`, `fixtures/`, `pom/`, etc.) to dyn
 ### 7. Automation Script Generation
 Finally, the agent writes the Playwright test script (`.spec.ts`) and any required Page Object Models or fixtures. It will strictly adhere to the standards it discovered in Step 6.
 * **Your Action:** Review the generated code. You can ask the agent to run the test using a terminal command to prove it passes.
+
+---
+
+## 🔗 Post-Automation: PR & Jira Sync
+
+After you have successfully generated and verified your automated tests, you can use the **pr-jira-sync** skill to finalize your workflow. 
+
+Just say: **"Run the pr-jira-sync skill"** and the agent will:
+1. Identify your active branch and ask for the target parent branch (e.g., `master`).
+2. Automatically check for uncommitted changes and help you commit them.
+3. Analyze your code diffs and draft a highly professional Pull Request description.
+4. Raise the Pull Request via GitHub MCP (or GitHub CLI).
+5. Move the associated Jira issue to the "Done" status and add a comment with the link to your new PR.
 
 ---
 

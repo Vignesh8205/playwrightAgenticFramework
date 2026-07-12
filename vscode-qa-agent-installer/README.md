@@ -9,6 +9,7 @@ This extension is designed to instantly scaffold advanced Agentic QA Automation 
 - **One-Click Scaffold**: Automatically generates the `.agents` and `.github/agents` directories in your active workspace.
 - **Jira Integration**: Installs the instructions needed for Copilot to fetch Jira Projects, Sprints, and User Stories.
 - **Playwright Integration**: Installs the instructions needed for Copilot to launch a headless browser, perform manual UI flows, and extract robust DOM locators.
+- **Post-Automation Sync (PR & Jira)**: Installs the `pr-jira-sync` skill to automatically commit changes, draft professional Pull Requests via GitHub MCP or CLI, and update Jira statuses with the PR link.
 - **Framework Agnostic**: The generated agent dynamically learns your existing repository's framework standards (e.g., custom fixtures, Page Object Models) before writing any code.
 
 ## 🛠️ Usage
@@ -18,7 +19,7 @@ This extension is designed to instantly scaffold advanced Agentic QA Automation 
 3. Type and select: **`Initialize QA Automation Agent`**.
 4. The `.github` and `.agents` folders will be instantly created in your workspace!
 
-You can now open a Copilot chat and say **"Trigger QA automation"** to begin the interactive flow.
+You can now open a Copilot chat and say **"Trigger QA automation"** to begin the interactive flow, or **"Run the pr-jira-sync skill"** to finalize your completed automation task by raising a PR!
 
 ## 📋 Requirements
 
