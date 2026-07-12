@@ -7,6 +7,7 @@ By leveraging the Model Context Protocol (MCP), this repository contains AI Agen
 ## 🌟 Key Features
 
 * **End-to-End Automation Loop**: Turns Jira User Stories into Playwright code in a single prompt.
+* **Post-Automation Sync**: Automatically generates Pull Requests, commits code, and updates Jira status to "Done".
 * **Framework Agnostic Learning**: The agent dynamically scans the repository's directories (`pom/`, `fixtures/`, `tests/`) to understand your coding standards and dependency injection mechanisms before writing code.
 * **Page Object Model (POM) Standard**: Strictly enforces the use of POMs and Playwright Fixtures (`customFixtures.ts`).
 * **MCP Integrations**:
@@ -15,8 +16,8 @@ By leveraging the Model Context Protocol (MCP), this repository contains AI Agen
 
 ## 📁 Repository Structure
 
-* `.agents/skills/`: Contains the Antigravity `SKILL.md` file that defines the 7-step interactive workflow.
-* `.github/agents/`: Contains the AI Agent Profile (`copilot-qa-automation.md`) mapping the agent to the custom skill.
+* `.agents/skills/`: Contains the Antigravity `SKILL.md` files that define the interactive workflows (`copilot_qa_automation` and `pr_jira_sync`).
+* `.github/agents/`: Contains the AI Agent Profiles (`copilot-qa-automation.md`, `pr-jira-sync.md`) mapping the agents to the custom skills.
 * `pom/`: Page Object Models defining UI elements and actions (e.g., `ContactPage.ts`, `Navigation.ts`).
 * `fixtures/`: Playwright custom fixtures (`customFixtures.ts`) used for injecting POMs into test scripts.
 * `tests/`: Generated Playwright test scripts (`.spec.ts`).
@@ -33,6 +34,9 @@ If you are using an Agentic IDE (like Antigravity, Cursor, or Claude Code):
    ```bash
    npx playwright test
    ```
+4. **Finalize & Sync**: Once testing is complete, type:
+   > *"Run the pr-jira-sync skill"*
+   The agent will commit changes, raise a PR, and transition your Jira ticket to Done!
 
 For full details on the 7-step process, see the [USER_GUIDE.md](./USER_GUIDE.md).
 
