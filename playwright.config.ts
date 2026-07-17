@@ -5,7 +5,7 @@ export default defineConfig({
   timeout: 30_000,
   retries: 0,
   reporter: [
-    ['html', { open: 'never' }]
+    ['html']
   ],
   use: {
     headless: true,
