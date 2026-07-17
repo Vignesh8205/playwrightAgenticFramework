@@ -41,7 +41,7 @@ You must follow this step-by-step process. **DO NOT proceed to the next step unt
 
 ### Step 4: Fetch Gherkin Test Cases
 1. Use the `jira` MCP to retrieve the details of the selected story.
-2. Extract the Acceptance Criteria and specifically the Gherkin (Given/When/Then) test cases.
+2. Extract the Acceptance Criteria and specifically the Gherkin (Given/When/Then) test cases from the issue description, comments, or **any attached files (e.g., .xlsx, .pdf, .docx, .csv)** using appropriate tools to parse and read the attachments.
 3. Present the extracted Gherkin scenarios to the user so they know what will be automated.
 
 ### Step 5: Analyze and Execute Manual Flow
@@ -54,7 +54,7 @@ You must follow this step-by-step process. **DO NOT proceed to the next step unt
 2. Look for configuration files and custom setups (e.g., `fixtures/`, `support/`, `utils/`) to understand how dependencies and page models are injected or instantiated in this specific repository.
 3. Read existing test files to deduce the project's standard for importing dependencies and initializing Page Objects.
 4. **CRITICAL**: You must strictly adhere to the dynamically discovered framework standard. For example, if the framework uses custom Playwright fixtures, you must update the fixture file and inject it; if it uses standard `new POM(page)` instantiation, do that.
-5. If the project uses a Page Object pattern and a POM does not exist for the page being tested, you MUST CREATE one in the appropriate directory before writing the test. Do not write raw locators in spec files if the project uses POMs.
+5. **CRITICAL REUSE**: Before creating new Page Objects, locators, or utility functions, you MUST thoroughly search the existing codebase to see if they already exist. Prioritize reusing existing code to avoid duplication. If the project uses a Page Object pattern and a required POM truly does not exist, you MUST CREATE one in the appropriate directory. Do not write raw locators in spec files if the project uses POMs.
 
 ### Step 7: Generate Automation Test Case
 1. Write a new Playwright `.spec.ts` test case that implements the Gherkin scenario.
