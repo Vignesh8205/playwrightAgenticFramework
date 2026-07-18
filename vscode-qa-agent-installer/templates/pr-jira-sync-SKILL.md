@@ -42,11 +42,10 @@ You must follow this step-by-step process. **DO NOT proceed to the next step unt
 1. Execute the PR related test scripts locally (e.g., running tests specifically for the modified files).
 2. If the tests pass, open the generated Playwright HTML report using the `playwright` MCP server.
 3. Use the `playwright` MCP server (`browser_take_screenshot` tool) to capture a screenshot of the successful test report.
-4. Save the screenshot locally (e.g., in a `test-evidence/` folder).
-5. Add and commit this screenshot to the current branch so it can be referenced in the Pull Request.
+4. Attach the captured screenshot directly to the final Pull Request description.
 
 ### Step 7: Add Jira Comment
-1. Ensure the Pull Request description (or a follow-up comment using `gh pr comment`) includes the markdown image link to the committed screenshot.
+1. Ensure the Pull Request description includes the attached screenshot of the test report.
 2. Use the `jira` MCP server (`addCommentToJiraIssue` tool) to add a professional comment to the Jira issue.
 3. The comment MUST include the link to the newly created Pull Request and summarize that the automation is complete and tests are passing.
 4. Inform the user that the PR has been raised, the report screenshot is attached to the PR, and the Jira issue has been updated successfully.
