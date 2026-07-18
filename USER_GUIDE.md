@@ -45,7 +45,7 @@ The agent will use the Playwright MCP to launch a headless browser and navigate 
 * **Your Action:** You may need to provide the target URL (e.g., `https://aidrivenconsultancy.com`) if it isn't specified in your config.
 
 ### 6. Dynamic Framework Analysis
-The agent will scan your repository (`tests/`, `fixtures/`, `pom/`, etc.) to dynamically understand your specific testing framework. It learns how you use Page Object Models (POMs) and dependency injection.
+The agent will scan your repository (`tests/`, `fixtures/`, `pages/`, etc.) to dynamically understand your specific testing framework. It learns how you use Page Object Models (POMs) and dependency injection.
 * **Your Action:** None! The agent does this automatically to ensure it mimics your coding standards perfectly.
 
 ### 7. Automation Script Generation
@@ -63,7 +63,8 @@ Just say: **"Run the pr-jira-sync skill"** and the agent will:
 2. Automatically check for uncommitted changes and help you commit them.
 3. Analyze your code diffs and draft a highly professional Pull Request description.
 4. Raise the Pull Request via GitHub MCP (or GitHub CLI).
-5. Move the associated Jira issue to the "Done" status and add a comment with the link to your new PR.
+5. Capture a screenshot of the Playwright HTML test report locally.
+6. Move the associated Jira issue to the "Done" status and add a comment with the link to your new PR.
 
 ---
 
@@ -71,6 +72,9 @@ Just say: **"Run the pr-jira-sync skill"** and the agent will:
 
 > [!TIP]
 > **Keep Jira Detailed:** The better the Acceptance Criteria and Test Steps are written in your Jira tickets, the better the final automation script will be.
+
+> [!TIP]
+> **Test Execution Screenshots:** The GitHub CLI cannot directly upload local screenshots to the PR body. The agent will present the screenshot as a local artifact for you to drag and drop into the PR. For full automation, we recommend configuring GitHub Actions or using the GitHub MCP to commit the images to the repository.
 
 > [!NOTE]
 > **Framework Agnostic:** Because of Step 6, you can drop this agent into a Cypress, Selenium, or different Playwright repository, and it will automatically adapt to the new framework's standards.
