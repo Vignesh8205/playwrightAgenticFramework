@@ -25,16 +25,27 @@ You must follow this step-by-step process. **DO NOT proceed to the next step unt
 3. Present the generated PR title and description to the user.
 4. **STOP AND WAIT** for the user to approve or request edits to the PR details.
 
-### Step 4: Raise Pull Request
-1. If a GitHub MCP server is available, use it to create the Pull Request against the parent branch.
-2. As a fallback, use the `run_command` tool to execute the GitHub CLI command: `gh pr create --base <parent_branch> --title "<PR Title>" --body "<PR Description>"`.
-3. Extract and save the resulting Pull Request URL from the command output.
+### Step 4: Push Code and Raise Pull Request
+1. Ensure the code is pushed to the remote repository. Use the GitHub MCP if it supports pushing, otherwise fallback to standard git commands (e.g., `git push -u origin HEAD`).
+2. If a GitHub MCP server is available, use it to create the Pull Request against the parent branch.
+3. As a fallback for PR creation, use the GitHub CLI (`gh`). 
+   - First, check if `gh` is installed by running `gh --version`.
+   - If it is not installed, you MUST install it first (using the appropriate package manager for the OS) before proceeding.
+   - Run: `gh pr create --base <parent_branch> --title "<PR Title>" --body "<PR Description>"`
+4. Extract and save the resulting Pull Request URL from the command output.
 
 ### Step 5: Update Jira Issue Status
 1. Use the `call_mcp_tool` with the `jira` server (`getTransitionsForJiraIssue` tool) to find the correct transition ID for moving the issue to "Done".
 2. Use the `jira` MCP server (`transitionJiraIssue` tool) to transition the identified Jira task to "Done".
 
-### Step 6: Add Jira Comment
-1. Use the `jira` MCP server (`addCommentToJiraIssue` tool) to add a professional comment to the Jira issue.
-2. The comment MUST include the link to the newly created Pull Request and summarize that the automation is complete.
-3. Inform the user that the PR has been raised and the Jira issue has been updated successfully.
+### Step 6: Execute Tests and Capture Report
+1. Execute the PR related test scripts locally (e.g., running tests specifically for the modified files).
+2. If the tests pass, open the generated Playwright HTML report using the `playwright` MCP server.
+3. Use the `playwright` MCP server (`browser_take_screenshot` tool) to capture a screenshot of the successful test report.
+4. Attach the captured screenshot directly to the final Pull Request description.
+
+### Step 7: Add Jira Comment
+1. Ensure the Pull Request description includes the attached screenshot of the test report.
+2. Use the `jira` MCP server (`addCommentToJiraIssue` tool) to add a professional comment to the Jira issue.
+3. The comment MUST include the link to the newly created Pull Request and summarize that the automation is complete and tests are passing.
+4. Inform the user that the PR has been raised, the report screenshot is attached to the PR, and the Jira issue has been updated successfully.

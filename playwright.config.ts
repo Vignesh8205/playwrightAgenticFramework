@@ -4,6 +4,9 @@ export default defineConfig({
   testDir: './tests',
   timeout: 30_000,
   retries: 0,
+  reporter: [
+    ['html']
+  ],
   use: {
     headless: true,
     baseURL: 'https://aidrivenconsultancy.com',
