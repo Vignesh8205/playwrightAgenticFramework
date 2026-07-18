@@ -19,4 +19,17 @@ test.describe('Contact Form Validation', () => {
     // Verify form did not submit by checking we are still on the contact page
     await expect(page).toHaveURL(/.*\/contact/);
   });
+
+  test('TC_REG_005: Try to submit empty contact form', async ({ contactPage, page }) => {
+    // Navigate to the contact page
+    await contactPage.navigate();
+
+    // Do not fill in any form fields
+
+    // Verify that the submit button is disabled because required fields are empty
+    await contactPage.expectSubmitButtonToBeDisabled();
+
+    // Verify form did not submit by checking we are still on the contact page
+    await expect(page).toHaveURL(/.*\/contact/);
+  });
 });
