@@ -3,3 +3,4 @@ playwright-report/
 test-results/
 .playwright-mcp/
 .agents
+vscode-qa-agent-installer/test-agents/
