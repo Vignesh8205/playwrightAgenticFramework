@@ -6,7 +6,14 @@ Welcome to your new **Copilot QA Automation Agent**! This agent leverages Jira, 
 
 ## 🚀 How to Trigger the Agent
 
-Whenever you are ready to automate a new feature or test case, simply open a new chat with the agent and type:
+### Step 1: Invoke the Agent Context
+Before triggering the workflow, you must ensure the AI assistant is reading the generated instructions. Depending on your chosen AI assistant, the invocation method differs:
+- **Antigravity:** The agents are installed as native "Skills". Simply type: `run the <agent-name> skill` (e.g., `run the copilot_qa_automation skill`).
+- **GitHub Copilot:** Use the `@workspace` tag and reference the file directly: `@workspace please follow the instructions in .github/agents/copilot-qa-automation.md to Trigger QA automation`.
+- **Claude Code / Cline / Kiro / Codex:** Reference the generated file in your prompt: `Follow the instructions in .claude/agents/copilot-qa-automation.md to Trigger QA automation`.
+
+### Step 2: Trigger the Workflow
+Once the context is invoked, the agent will begin its process. The general trigger phrases are:
 
 > **"Trigger QA automation"** or **"Start the QA automation workflow"**
 
