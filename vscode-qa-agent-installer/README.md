@@ -8,6 +8,7 @@ This extension is designed to instantly scaffold advanced Agentic QA Automation 
 
 - **Multi-Agent Support**: Automatically generates configuration files and directory structures tailored to your specific AI Agent (supports **GitHub Copilot, Antigravity, Claude Code, Cline, Kiro, and Codex**).
 - **Auto MCP Configuration**: Generates the necessary `mcp.json` files for your selected agents, pre-configured with Playwright and Jira servers.
+- **Framework Implementation Agent**: An interactive agent that explores your application dynamically via Playwright, creates a sanity scenario, and automatically scaffolds a robust Playwright or Cucumber BDD architecture tailored to your complexity needs (from simple to enterprise-grade with custom utilities and CI optimization).
 - **QA Automation Agent**: An interactive agent profile that extracts Gherkin test cases from Jira (including from file attachments like .xlsx or .pdf), executes manual flows, dynamically learns your framework's standards (e.g., Page Object Models), and writes compliant automated test scripts.
 - **Post-Automation Sync Agent (`pr-jira-sync`)**: A secondary agent designed to finalize your work. It runs the PR-related tests, captures a screenshot of the Playwright HTML report, raises a Pull Request (via GitHub MCP or CLI), transitions the Jira issue to "Done", and adds a comment with the PR link and test report screenshot.
 
@@ -21,9 +22,22 @@ This extension is designed to instantly scaffold advanced Agentic QA Automation 
 
 ## 🤖 How to Use the Agents
 
-Once the extension has scaffolded the files, your AI Assistant will be supercharged with two new workflows:
+Once the extension has scaffolded the files, your AI Assistant will be supercharged with three new workflows:
 
-### 1. Triggering QA Automation
+### 1. Triggering Framework Initialization
+If you are starting from scratch, open your AI Agent's chat and say:
+> *"Initialize my automation framework"*
+
+The agent will guide you through scaffolding the repository:
+- It will ask for your Application URL and dynamically explore it via both Playwright and Chrome DevTools to analyze UI and Network behavior.
+- It will analyze required utilities and determine the optimal test data strategy (e.g., Faker.js vs Static JSON/CSV/Excel).
+- It will draft a basic sanity test scenario based on the core functionality.
+- It will ask whether you prefer Playwright Native or Cucumber BDD (and ask if you want Allure Reporting if Cucumber is chosen).
+- It will ask if you want a **Simple Level** or a **High Level (Enterprise)** architecture, and ask for your preferred test data format.
+- It will install dependencies, generate optimized configuration files, and scaffold the directory structure (e.g., `pages/`, `components/`, `utils/`, `api/`, `data/`).
+- It will generate a comprehensive `README.md` for your newly scaffolded framework.
+
+### 2. Triggering QA Automation
 Open your AI Agent's chat interface (e.g., Copilot Chat, Antigravity) and say:
 > *"Trigger QA automation"*
 
@@ -33,7 +47,7 @@ The agent will begin an interactive, step-by-step process:
 - It will launch a browser via Playwright to verify the manual flow.
 - It will study your codebase, prioritize reusing existing Page Objects, and generate a new `.spec.ts` test case following your project's standards.
 
-### 2. Triggering Post-Automation PR & Jira Sync
+### 3. Triggering Post-Automation PR & Jira Sync
 After you have reviewed the generated test and are ready to finalize your work, open your AI Agent's chat and say:
 > *"Run the pr-jira-sync skill"*
 

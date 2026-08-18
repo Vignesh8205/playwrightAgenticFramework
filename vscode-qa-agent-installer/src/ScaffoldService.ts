@@ -6,12 +6,14 @@ export class ScaffoldService {
     static async scaffoldAgent(workspacePath: string, extensionPath: string, config: AgentConfig): Promise<void> {
         const fullSkillDir = path.join(workspacePath, ...config.skillDir.split('/'));
         const fullPrJiraSkillDir = path.join(workspacePath, ...config.prJiraSkillDir.split('/'));
+        const fullFrameworkInitSkillDir = path.join(workspacePath, ...config.frameworkInitSkillDir.split('/'));
         const fullAgentDir = path.join(workspacePath, ...config.agentDir.split('/'));
         const fullMcpConfigPath = path.join(workspacePath, ...config.mcpConfigPath.split('/'));
 
         // Ensure directories exist
         fs.mkdirSync(fullSkillDir, { recursive: true });
         fs.mkdirSync(fullPrJiraSkillDir, { recursive: true });
+        fs.mkdirSync(fullFrameworkInitSkillDir, { recursive: true });
         fs.mkdirSync(fullAgentDir, { recursive: true });
 
         // Write MCP Config
@@ -40,6 +42,8 @@ export class ScaffoldService {
         const templateAgentPath = path.join(extensionPath, 'templates', 'copilot-qa-automation.md');
         const templatePrJiraSkillPath = path.join(extensionPath, 'templates', 'pr-jira-sync-SKILL.md');
         const templatePrJiraAgentPath = path.join(extensionPath, 'templates', 'pr-jira-sync.md');
+        const templateFrameworkInitSkillPath = path.join(extensionPath, 'templates', 'framework-initializer-SKILL.md');
+        const templateFrameworkInitAgentPath = path.join(extensionPath, 'templates', 'framework-initializer.md');
 
         // Copy files
         if (config.renameTemplates) {
@@ -47,11 +51,15 @@ export class ScaffoldService {
             fs.copyFileSync(templateAgentPath, path.join(fullAgentDir, 'copilot-qa-automation.md'));
             fs.copyFileSync(templatePrJiraSkillPath, path.join(fullPrJiraSkillDir, 'pr-jira-sync-SKILL.md'));
             fs.copyFileSync(templatePrJiraAgentPath, path.join(fullAgentDir, 'pr-jira-sync.md'));
+            fs.copyFileSync(templateFrameworkInitSkillPath, path.join(fullFrameworkInitSkillDir, 'framework-initializer-SKILL.md'));
+            fs.copyFileSync(templateFrameworkInitAgentPath, path.join(fullAgentDir, 'framework-initializer.md'));
         } else {
             fs.copyFileSync(templateSkillPath, path.join(fullSkillDir, 'SKILL.md'));
             fs.copyFileSync(templateAgentPath, path.join(fullAgentDir, 'copilot-qa-automation.md'));
             fs.copyFileSync(templatePrJiraSkillPath, path.join(fullPrJiraSkillDir, 'SKILL.md'));
             fs.copyFileSync(templatePrJiraAgentPath, path.join(fullAgentDir, 'pr-jira-sync.md'));
+            fs.copyFileSync(templateFrameworkInitSkillPath, path.join(fullFrameworkInitSkillDir, 'SKILL.md'));
+            fs.copyFileSync(templateFrameworkInitAgentPath, path.join(fullAgentDir, 'framework-initializer.md'));
         }
     }
 }

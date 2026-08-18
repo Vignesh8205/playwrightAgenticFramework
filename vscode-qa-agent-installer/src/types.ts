@@ -4,6 +4,7 @@ export interface AgentConfig {
     description: string;
     skillDir: string;
     prJiraSkillDir: string;
+    frameworkInitSkillDir: string;
     agentDir: string;
     mcpConfigPath: string;
     renameTemplates: boolean;

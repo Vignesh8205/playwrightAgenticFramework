@@ -7,6 +7,7 @@ export const SUPPORTED_AGENTS: AgentConfig[] = [
         description: 'Install for Antigravity',
         skillDir: '.agents/skills/copilot_qa_automation',
         prJiraSkillDir: '.agents/skills/pr_jira_sync',
+        frameworkInitSkillDir: '.agents/skills/framework_initializer',
         agentDir: '.agents/skills',
         mcpConfigPath: '.agents/mcp.json',
         renameTemplates: false
@@ -17,6 +18,7 @@ export const SUPPORTED_AGENTS: AgentConfig[] = [
         description: 'Install for GitHub Copilot',
         skillDir: '.github/agents',
         prJiraSkillDir: '.github/agents',
+        frameworkInitSkillDir: '.github/agents',
         agentDir: '.github/agents',
         mcpConfigPath: '.github/mcp.json',
         renameTemplates: true
@@ -27,6 +29,7 @@ export const SUPPORTED_AGENTS: AgentConfig[] = [
         description: 'Install for Claude Code',
         skillDir: '.claude/agents',
         prJiraSkillDir: '.claude/agents',
+        frameworkInitSkillDir: '.claude/agents',
         agentDir: '.claude/agents',
         mcpConfigPath: '.claude/mcp.json',
         renameTemplates: true
@@ -37,6 +40,7 @@ export const SUPPORTED_AGENTS: AgentConfig[] = [
         description: 'Install for Cline',
         skillDir: '.cline/rules',
         prJiraSkillDir: '.cline/rules',
+        frameworkInitSkillDir: '.cline/rules',
         agentDir: '.cline/rules',
         mcpConfigPath: 'cline_mcp.json',
         renameTemplates: true
@@ -47,6 +51,7 @@ export const SUPPORTED_AGENTS: AgentConfig[] = [
         description: 'Install for Kiro',
         skillDir: '.kiro/agents',
         prJiraSkillDir: '.kiro/agents',
+        frameworkInitSkillDir: '.kiro/agents',
         agentDir: '.kiro/agents',
         mcpConfigPath: '.kiro/mcp.json',
         renameTemplates: true
@@ -57,6 +62,7 @@ export const SUPPORTED_AGENTS: AgentConfig[] = [
         description: 'Install for Codex',
         skillDir: '.codex/agents',
         prJiraSkillDir: '.codex/agents',
+        frameworkInitSkillDir: '.codex/agents',
         agentDir: '.codex/agents',
         mcpConfigPath: '.codex/mcp.json',
         renameTemplates: true
