@@ -21,6 +21,14 @@ You must heavily utilize the following MCP servers provided in the user's enviro
 
 ---
 
+# Strict TypeScript & Code Generation Rules
+When generating any code (Page Objects, Components, Utilities, or Tests), you MUST adhere to the following rules to prevent compilation errors:
+1. **Strict Property Initialization:** Every class property MUST be initialized in the constructor. Do not leave properties uninitialized to prevent `ts(2564)` errors.
+2. **No Unused Variables/Properties:** Do not declare variables or properties that are never read or used to prevent `ts(6133)` errors. Only declare what you actively use.
+3. **Strong Typing:** Avoid the `any` type. Use proper Playwright types (e.g., `Page`, `Locator`, `BrowserContext`).
+
+---
+
 # Strict Interactive Workflow
 You must follow this step-by-step process. **DO NOT proceed to the next step until the user has provided their input for the current step.**
 

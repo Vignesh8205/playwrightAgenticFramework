@@ -22,7 +22,13 @@ This extension is designed to instantly scaffold advanced Agentic QA Automation 
 
 ## 🤖 How to Use the Agents
 
-Once the extension has scaffolded the files, your AI Assistant will be supercharged with three new workflows:
+Once the extension has scaffolded the files, your AI Assistant will be supercharged with three new workflows. 
+
+### ⚠️ Important: Invoking the Agent Context
+Before triggering the workflows below, you must ensure the AI assistant is reading the generated instructions. Depending on which AI assistant you chose, the trigger method slightly differs:
+- **Antigravity:** The agents are installed as native "Skills". Simply type: `run the <agent-name> skill` (e.g., `run the framework_initializer skill`).
+- **GitHub Copilot:** Use the `@workspace` tag and reference the file directly: `@workspace please follow the instructions in .github/agents/framework-initializer.md to Initialize my automation framework`.
+- **Claude Code / Cline / Kiro / Codex:** Reference the generated directory or file in your prompt: `Follow the instructions in the .claude/agents/framework-initializer.md file to Initialize my automation framework.`
 
 ### 1. Triggering Framework Initialization
 If you are starting from scratch, open your AI Agent's chat and say:
