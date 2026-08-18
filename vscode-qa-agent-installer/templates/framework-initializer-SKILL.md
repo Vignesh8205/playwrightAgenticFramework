@@ -41,12 +41,11 @@ You must follow this step-by-step process. **DO NOT proceed to the next step unt
    - **Cucumber BDD**
 2. **STOP AND WAIT** for the user to select an approach.
 
-### Step 5: Refine BDD Choice & Reporting (Conditional)
-1. If the user chose **Cucumber BDD** in Step 4, you must now ask them:
+### Step 5: Refine Framework Choice & Reporting
+1. If the user chose **Cucumber BDD** in Step 4, you must ask them:
    - **Integration Approach:** Which integration approach do they prefer? (**cucumber-js native** or **playwright-bdd**)
-   - **Reporting Tool:** Do they want to use **Allure Report** (Recommended for BDD) or another reporter?
-2. If they chose **Playwright Native** in Step 4, skip this step (the standard Playwright HTML report will be used).
-3. **STOP AND WAIT** for the user to provide their choices if applicable.
+2. **Reporting Tool:** Regardless of whether they chose Playwright Native or Cucumber BDD, ask the user if they want to integrate **Allure Report** or use the default HTML reporter.
+3. **STOP AND WAIT** for the user to provide their choices.
 
 ### Step 6: Ask for Complexity Level
 1. Ask the user what level of complexity they want for the framework scaffold:
@@ -64,14 +63,15 @@ You must follow this step-by-step process. **DO NOT proceed to the next step unt
 
 ### Step 8: Scaffold the Framework
 1. **Initialize Project & Dependencies:** Run commands to install Playwright (and Cucumber if chosen). If "High Level" was chosen, also install ESLint, Prettier, Husky, `dotenv`, and **Faker.js** (if your Data Management Analysis deemed it necessary). If CSV or Excel was chosen, install the respective parsing libraries (e.g., `csv-parse`, `xlsx`). If Allure Report was chosen, install the corresponding Allure packages.
-2. **Configuration:** Generate `playwright.config.ts`. If "High Level" was chosen, include test sharding, global setup/teardown (auth caching), and multi-environment support.
+2. **Configuration:** Generate `playwright.config.ts`. If "High Level" was chosen, include test sharding, global setup/teardown (auth caching), and **JSON-based multi-environment support**. (Create an `environments.json` file storing URLs for `qa`, `dev`, etc., and write a utility method to dynamically load the correct URL based on a `process.env.ENV` variable).
 3. **Directory Structure:** 
    - If "Simple Level": Set up basic directories (e.g., `tests/` or `features/`, `pages/`, `fixtures/`).
    - If "High Level": Set up the robust enterprise architecture (`tests/`, `pages/`, `components/`, `api/`, `utils/`, `fixtures/`, and `data/` for the chosen test data format). **Crucially, populate the `utils/` directory with the application-specific utilities you identified, and set up the Test Data Management approach (Faker.js integration and/or JSON/CSV/Excel parser utilities).**
 4. **Implementation & Reusability:** Write the approved sanity test scenario using the selected architecture. **CRITICAL:** You must prioritize industry-standard high reusability:
-   - **Enhanced BasePage Architecture:** If "High Level" was chosen, you MUST create a `BasePage` class containing common Playwright actions that all other Page Objects extend. It must also handle the Device Context (e.g., accept an `isMobile` flag) and initialize Locator definitions for Global Components (like Snackbars, Cookie Banners, or Notifications).
+   - **Enhanced Base Architecture:** If "High Level" was chosen, you MUST create a `BasePage` class containing common Playwright actions that all other Page Objects extend, handling Device Context (e.g. `isMobile`) and initializing Locators for Global Components. You MUST ALSO create a `BaseComponent` class that all reusable UI components extend.
    - **Advanced Network Utilities:** Do NOT hardcode basic network interceptions (e.g., `page.waitForRequest`) directly in the test file. You MUST create a robust `network-helpers.ts` utility that implements an advanced `triggerAndWaitForNetworkIdle` pattern. This helper should execute an action and gracefully await background API calls while tracking performance thresholds.
    - **Modular Helper Architecture:** If "High Level" was chosen, structure your `utils/` directory logically into specific domains (e.g., `auth-helpers.ts`, `cookie-helpers.ts`, `network-helpers.ts`) instead of a single monolithic file.
    - **Components:** If "High Level" was chosen, explicitly demonstrate reusing a Component within a Page Object and passing data dynamically.
 5. **Documentation:** Generate a comprehensive `README.md` file for the newly scaffolded framework. It should include an overview of the directory structure, instructions on how to install dependencies, run the tests, and view reports.
-6. **Finalization:** Provide the user with the commands to run tests, lint the code (if applicable), and view the report.
+6. **Sanity Script Validation (MANDATORY):** Before finalizing, you MUST execute the generated sanity test script using the terminal (e.g., `npx playwright test`). If the test fails, analyze the error. You MUST use the `playwright` MCP server to re-inspect the live DOM and find the correct locators, fix the code, and re-run it until it passes cleanly. Do not present broken code to the user.
+7. **Finalization:** Provide the user with the commands to run tests, lint the code (if applicable), and view the report.
