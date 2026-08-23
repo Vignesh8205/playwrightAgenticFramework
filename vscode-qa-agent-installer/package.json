@@ -4,6 +4,11 @@
   "displayName": "QA Automation Agent Installer",
   "description": "Scaffolds QA Automation Agent Profiles and Skills into your workspace",
   "version": "1.0.0",
+  "icon": "icon.jpg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vignesh8205/playwrightAgenticFramework.git"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
