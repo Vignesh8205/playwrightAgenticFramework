@@ -13,6 +13,7 @@ When generating any code (Page Objects, Components, Utilities, or Tests), you MU
 1. **Strict Property Initialization:** Every class property MUST be initialized in the constructor. Do not leave properties uninitialized to prevent `ts(2564)` errors.
 2. **No Unused Variables/Properties:** Do not declare variables or properties that are never read or used to prevent `ts(6133)` errors. Only declare what you actively use.
 3. **Strong Typing:** Avoid the `any` type. Use proper Playwright types (e.g., `Page`, `Locator`, `BrowserContext`).
+4. **Test Steps:** If the framework uses the standard Playwright runner, you MUST wrap all logical UI actions and assertions within `.spec.ts` files inside descriptive `await test.step('Description', async () => { ... })` blocks. However, if the framework uses Cucumber (BDD), you MUST NOT use `test.step()`; instead, map the logic to standard Cucumber step definitions (`Given`, `When`, `Then`).
 
 ---
 
@@ -54,5 +55,11 @@ You must follow this step-by-step process. **DO NOT proceed to the next step unt
 ### Step 7: Generate Automation Test Case
 1. Write a new Playwright `.spec.ts` test case that implements the Gherkin scenario.
 2. Ensure the code strictly adheres to the framework standards identified in Step 6 (reusing POMs, proper assertions, etc.).
-3. Write the generated code to the appropriate file in the `tests/` directory.
-4. Provide the user with the final terminal command to run their newly created test (e.g., `npx playwright test tests/new-story.spec.ts`).
+5. Write the generated code to the appropriate file in the `tests/` directory.
+
+### Step 8: Execute and Self-Heal (HIGH PRIORITY)
+1. You MUST execute the newly generated automation script in the terminal (e.g., `npx playwright test tests/new-story.spec.ts`).
+2. If the test passes, you are done! Provide the final execution command and report success to the user.
+3. If the test fails, you MUST analyze the error deeply. You MUST use the `playwright` MCP server again to re-inspect the live DOM at the exact point of failure, find the correct robust locators, and fix the codebase.
+4. Re-run the test and repeat this self-healing process manually until the test passes cleanly before finalizing.
+5. **CRITICAL:** All fixes and self-healing code MUST strictly adhere to the framework standards identified in Step 6 (e.g., you cannot bypass rules by placing raw locators in `.spec.ts` files just to make the test pass quickly).
