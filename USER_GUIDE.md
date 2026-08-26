@@ -27,6 +27,22 @@ This will trigger the post-automation sync workflow to finalize your changes.
 
 ---
 
+## 🏗️ Framework Initialization Workflow
+
+If you are starting a new project from scratch, you can use the **Framework Initializer** agent to build your repository architecture before you write any tests.
+
+Trigger it by saying: **"Initialize my automation framework"**
+
+The agent will guide you through scaffolding the repository:
+1. **Framework Type Selection:** Choose between **UI Only**, **API Only**, or **Hybrid (UI + API)**.
+2. **API/Postman Integration:** If you chose API or Hybrid, the agent will prompt for your Postman Collection and fetch the specs dynamically using the Postman MCP Server.
+3. **HTTP Client Preference:** For API/Hybrid frameworks, choose if you prefer **Playwright Native (APIRequestContext)** or **Axios** for HTTP calls (assertions always use Playwright).
+4. **App Exploration:** For UI/Hybrid frameworks, the agent will dynamically explore your application via Playwright and Chrome DevTools to analyze UI and Network behavior.
+5. **Architecture & Complexity:** Choose between Playwright Native or Cucumber BDD, and select a **Simple Level** or **High Level (Enterprise)** architecture.
+6. **Scaffold:** The agent installs all dependencies and scaffolds the directory structure (e.g., `pages/`, `api/`, `components/`, `utils/`, `data/`).
+
+---
+
 ## 🔄 The 7-Step Interactive Workflow
 
 The agent will walk you through the process, pausing for your input where necessary.
