@@ -7,8 +7,8 @@ This extension is designed to instantly scaffold advanced Agentic QA Automation 
 ## 🚀 Key Features
 
 - **Multi-Agent Support**: Automatically generates configuration files and directory structures tailored to your specific AI Agent (supports **GitHub Copilot, Antigravity, Claude Code, Cline, Kiro, and Codex**).
-- **Auto MCP Configuration**: Generates the necessary `mcp.json` files for your selected agents, pre-configured with Playwright and Jira servers.
-- **Framework Implementation Agent**: An interactive agent that explores your application dynamically via Playwright, creates a sanity scenario, and automatically scaffolds a robust Playwright or Cucumber BDD architecture tailored to your complexity needs (from simple to enterprise-grade with custom utilities and CI optimization).
+- **Auto MCP Configuration**: Generates the necessary `mcp.json` files for your selected agents, pre-configured with Playwright, Jira, and Postman MCP servers.
+- **Framework Implementation Agent**: An interactive agent that explores your application dynamically (via Playwright or Postman collections) and scaffolds a robust testing architecture. Supports **UI Only**, **API Only**, or **Hybrid (UI + API)** frameworks, ranging from simple to enterprise-grade with custom utilities and CI optimization.
 - **QA Automation Agent**: An interactive agent profile that extracts Gherkin test cases from Jira (including from file attachments like .xlsx or .pdf), executes manual flows, dynamically learns your framework's standards (e.g., Page Object Models), and writes compliant automated test scripts.
 - **Post-Automation Sync Agent (`pr-jira-sync`)**: A secondary agent designed to finalize your work. It runs the PR-related tests, captures a screenshot of the Playwright HTML report, raises a Pull Request (via GitHub MCP or CLI), transitions the Jira issue to "Done", and adds a comment with the PR link and test report screenshot.
 
@@ -35,12 +35,15 @@ If you are starting from scratch, open your AI Agent's chat and say:
 > *"Initialize my automation framework"*
 
 The agent will guide you through scaffolding the repository:
-- It will ask for your Application URL and dynamically explore it via both Playwright and Chrome DevTools to analyze UI and Network behavior.
-- It will analyze required utilities and determine the optimal test data strategy (e.g., Faker.js vs Static JSON/CSV/Excel).
+- It will ask what type of framework you want: **UI Only**, **API Only**, or **Hybrid (UI + API)**.
+- For API/Hybrid frameworks, it will ask for a Postman Collection and fetch the specs dynamically using the Postman MCP Server.
+- For UI/Hybrid frameworks, it will dynamically explore your application via Playwright and Chrome DevTools to analyze UI and Network behavior.
+- It will analyze required utilities and determine the optimal test data strategy.
 - It will draft a basic sanity test scenario based on the core functionality.
 - It will ask whether you prefer Playwright Native or Cucumber BDD (and ask if you want Allure Reporting if Cucumber is chosen).
+- For API/Hybrid frameworks, it will ask if you prefer **Playwright Native (APIRequestContext)** or **Axios** for HTTP calls.
 - It will ask if you want a **Simple Level** or a **High Level (Enterprise)** architecture, and ask for your preferred test data format.
-- It will install dependencies, generate optimized configuration files, and scaffold the directory structure (e.g., `pages/`, `components/`, `utils/`, `api/`, `data/`).
+- It will install dependencies, generate optimized configuration files, and scaffold the directory structure (e.g., `pages/`, `api/`, `components/`, `utils/`, `data/`).
 - It will generate a comprehensive `README.md` for your newly scaffolded framework.
 
 ### 2. Triggering QA Automation
@@ -70,6 +73,7 @@ The agent will seamlessly complete your workflow:
 To fully utilize the generated Agent, your Agentic IDE must support the Model Context Protocol (MCP) and have the following tools available (the extension scaffolds the configuration for these automatically):
 * `@playwright/mcp`
 * `mcp-remote` (Atlassian Jira)
+* `@anthropic-pb/postman-mcp-server` (For generating API tests from Postman Collections - *Requires POSTMAN_API_KEY to be set in the generated config*)
 * GitHub CLI (`gh`) - *Required only if a GitHub MCP server is unavailable for PR creation.*
 
 ## 📦 How to Build the Extension Locally

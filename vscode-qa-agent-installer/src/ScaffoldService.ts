@@ -26,6 +26,13 @@ export class ScaffoldService {
                 jira: {
                     command: "npx",
                     args: ["-y", "mcp-remote"]
+                },
+                "postman-mcp-server": {
+                    command: "npx",
+                    args: ["-y", "@anthropic-pb/postman-mcp-server"],
+                    env: {
+                        POSTMAN_API_KEY: "<YOUR_POSTMAN_API_KEY>"
+                    }
                 }
             }
         }, null, 2);
